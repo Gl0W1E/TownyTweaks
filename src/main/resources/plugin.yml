@@ -1,0 +1,6 @@
+name: TownyTweaks
+version: '${project.version}'
+main: me.darthpeti.townytweaks.Main
+api-version: 1.18
+authors: [ darthpeti ]
+description: Adds many features to your towny server
