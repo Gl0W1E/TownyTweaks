@@ -1,6 +1,7 @@
 package me.darthpeti.townytweaks;
 
 import me.darthpeti.townytweaks.Towny.ArmorStandRestriction;
+import me.darthpeti.townytweaks.Towny.BrewRestrict;
 import me.darthpeti.townytweaks.Towny.ShulkerRestriction;
 import me.darthpeti.townytweaks.Towny.ShulkerRestrictionInteract;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -22,6 +23,7 @@ public final class Main extends JavaPlugin {
     getServer().getPluginManager().registerEvents(new ArmorStandRestriction(), this);
     getServer().getPluginManager().registerEvents(new ShulkerRestriction(), this);
     getServer().getPluginManager().registerEvents(new ShulkerRestrictionInteract(), this);
+    getServer().getPluginManager().registerEvents(new BrewRestrict(), this);
     }
 
     @Override

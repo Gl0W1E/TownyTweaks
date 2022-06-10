@@ -11,6 +11,10 @@
 # If one of the features TownyTweaks offers ends up added to Towny, it is recommended that you turn the feature off in this config
 # and configure the feature in the main Towny config file (/plugins/Towny/settings/)
 
+# Required Towny version for this plugin: 0.98.2.0.
+# Required Java version: 17.
+# Required server type: Paper or any fork of Paper.
+
 
 
 enable-armorstand-restriction: "false"
@@ -25,8 +29,19 @@ allow-armorstand-only-in-plottype: "edit-plot-type-name-here"
 
 enable-shulker-restriction: "false"
 # Set to false to allow shulker boxes being broken and interacted with anywhere, as long as the player has permissions to the plot the shulker is in.
-# Set to false if you want the opposite, configure it below.
+# Set to true if you want the opposite, configure it below.
 
 allow-shulkers-only-in-plottype: "edit-plot-type-name-here"
 # Change the "edit-plot-type-name-here" to the name of the plot type you want shulker boxes to be only accessible in.
 # Give your admins townytweaks.admin.bypassshulkerbox permission node if you want them to bypass this restriction.
+
+
+enable-brew-barrels-restriction: "false"
+# Set to false if you don't use the Brewery plugin, or just don't want any restrictions to be implemented regarding brewery.
+# Set to true if you want the opposite, configure it below.
+# WARNING: You need atleast version 3.1 of the brewery plugin for the restriction to properly work.
+# Download: https://github.com/DieReicheErethons/Brewery
+
+allow-barrels-only-in-plottype: "edit-plot-type-name-here"
+# Change the "edit-plot-type-name-here" to the name of the plot type you want brewing barrels to be only accessible in.
+# Give your admins townytweaks.admin.bypassbrew permission node if you want them to  bypass this restriction.
