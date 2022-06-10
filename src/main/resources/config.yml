@@ -1,0 +1,32 @@
+########################################
+##                                    ##
+##   TownyTweaks Configuration File   ##
+##                                    ##
+########################################
+
+# TownyTweaks is an addon plugin for the Towny plugin.
+
+# You will find almost every feature that isn't in Towny here and you can always enable or disable it!
+
+# If one of the features TownyTweaks offers ends up added to Towny, it is recommended that you turn the feature off in this config
+# and configure the feature in the main Towny config file (/plugins/Towny/settings/)
+
+
+
+enable-armorstand-restriction: "false"
+# Set to false to allow armor stand interaction anywhere, as long as the manipulator has permissions to the plot the stand is in.
+# Set to true if you want the opposite, configure it below.
+
+allow-armorstand-only-in-plottype: "edit-plot-type-name-here"
+# Change the "edit-plot-type-name-here" to the name of the only plot type you want armor stands to be interactable with in.
+# This also requires you to create the plot at the bottom of main Towny's config.yml incase you are using a custom plot type.
+# Give your admins townytweaks.admin.bypassarmorstand permission node if you want them to bypass this restriction.
+
+
+enable-shulker-restriction: "false"
+# Set to false to allow shulker boxes being broken and interacted with anywhere, as long as the player has permissions to the plot the shulker is in.
+# Set to false if you want the opposite, configure it below.
+
+allow-shulkers-only-in-plottype: "edit-plot-type-name-here"
+# Change the "edit-plot-type-name-here" to the name of the plot type you want shulker boxes to be only accessible in.
+# Give your admins townytweaks.admin.bypassshulkerbox permission node if you want them to bypass this restriction.
