@@ -6,7 +6,6 @@ import me.darthpeti.townytweaks.Towny.ShulkerRestriction;
 import me.darthpeti.townytweaks.Towny.ShulkerRestrictionInteract;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
 
 public final class Main extends JavaPlugin {
 
@@ -17,8 +16,7 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         Main.instance = this;
-    config.options().copyDefaults(true);
-    saveConfig();
+    loadConfig();
 
     getServer().getPluginManager().registerEvents(new ArmorStandRestriction(), this);
     getServer().getPluginManager().registerEvents(new ShulkerRestriction(), this);
@@ -31,7 +29,8 @@ public final class Main extends JavaPlugin {
 
     }
 
-    public FileConfiguration getConfig() {
-        return config;
+    public void loadConfig(){
+        getConfig().options().copyDefaults(false);
+        saveDefaultConfig();
     }
 }

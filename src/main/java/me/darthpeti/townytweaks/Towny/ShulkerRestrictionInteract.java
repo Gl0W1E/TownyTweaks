@@ -15,13 +15,15 @@ public class ShulkerRestrictionInteract implements Listener {
     public void onInteractWithShulk(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         Block block = event.getClickedBlock();
-        if(block instanceof ShulkerBox) {
-            if(!TownyAPI.getInstance().isWilderness(block.getLocation())) {
-                if(!TownyAPI.getInstance().getTownBlock(block.getLocation()).getType().getName().equalsIgnoreCase(Main.instance.getConfig().getString("allow-shulkers-only-in-plottype"))) {
-                    if(!player.hasPermission("townytweaks.admin.bypassshulkerbox")) {
-                        if(Main.instance.getConfig().getString("enable-shulker-restriction").equalsIgnoreCase("true")) {
-                            event.setCancelled(true);
-                            player.sendMessage(ChatColor.GOLD + "[Towny] " + ChatColor.RED + "You can only use shulker boxes in " + Main.instance.getConfig().getString("allow-shulkers-only-in-plottype") + " plots.");
+        if (block != null) {
+            if (block.getState() instanceof ShulkerBox) {
+                if (!TownyAPI.getInstance().isWilderness(block.getLocation())) {
+                    if (!TownyAPI.getInstance().getTownBlock(block.getLocation()).getType().getName().equalsIgnoreCase(Main.instance.getConfig().getString("allow-shulkers-only-in-plottype"))) {
+                        if (!player.hasPermission("townytweaks.admin.bypassshulkerbox")) {
+                            if (Main.instance.getConfig().getString("enable-shulker-restriction").equalsIgnoreCase("true")) {
+                                event.setCancelled(true);
+                                player.sendMessage(ChatColor.GOLD + "[Towny] " + ChatColor.RED + "You can only use shulker boxes in " + Main.instance.getConfig().getString("allow-shulkers-only-in-plottype") + " plots.");
+                            }
                         }
                     }
                 }
