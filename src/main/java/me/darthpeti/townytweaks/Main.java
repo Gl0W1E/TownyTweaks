@@ -31,8 +31,6 @@ public final class Main extends JavaPlugin {
 
     }
 
-    @NotNull
-    @Override
     public FileConfiguration getConfig() {
         return config;
     }
