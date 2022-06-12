@@ -12,12 +12,13 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import java.util.Objects;
 
 import static me.darthpeti.townytweaks.Towny.util.ConfigUtil.allowShulkersInPlotType;
+import static me.darthpeti.townytweaks.Towny.util.ConfigUtil.shulkerRestriction;
 
 public class ShulkerRestrictionInteract implements Listener {
 
     @EventHandler
     public void onPlayerInteract (PlayerInteractEvent event) {
-        if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+        if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && shulkerRestriction()) {
             Player player = event.getPlayer();
             Material type = Objects.requireNonNull(event.getClickedBlock()).getType();
             if (isClickableBlock(type)) {

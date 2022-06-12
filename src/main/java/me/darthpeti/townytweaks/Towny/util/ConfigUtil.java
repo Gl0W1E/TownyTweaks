@@ -34,6 +34,11 @@ public class ConfigUtil {
         return null;
     }
 
+    public static boolean shulkerRestriction() {
+        return Main.instance.getConfig().getBoolean("enable-shulker-restriction");
+    }
+
+
     public static TownBlockType allowShulkersInPlotType(){
         //ARENA,BANK,COMMERCIAL,EMBASSY,FARM,INN,JAIL,RESIDENTIAL,WILDS
         String plotType = Main.instance.getConfig().getString("allow-shulkers-only-in-plottype");
