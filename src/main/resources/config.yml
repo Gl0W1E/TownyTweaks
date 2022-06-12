@@ -55,4 +55,7 @@ keep-inventory-in-sieges: "false"
 allow-pearl-in-besieged-towns: "false"
 # This was originally a feature on EarthPol and never got implemented into SiegeWar because the Gooius (Main SW Dev) had left around the same time
 # This feature will allow players to teleport in towns that are in an active siege zone while ignoring the Town's Flags that would otherwise deny it.
-# //Explain some more here peti.
+
+spawn-trap-prevention-in-capitals: "false"
+# This was originally made for EarthMC to prevent nation spawn trapping where a player would be in a surprise pvp zone.
+# This feature was updated to work with SiegeWar at the request of EarthPol's Devs. This was originally mostly written by @Warriorrrr.
