@@ -2,7 +2,7 @@ name: TownyTweaks
 version: '${project.version}'
 main: me.darthpeti.townytweaks.Main
 api-version: 1.18
-authors: [ darthpeti ]
+authors: [ darthpeti, 0xbit, _kz_n]
 description: Adds many features to your towny server
 commands:
   townytweaks:

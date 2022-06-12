@@ -11,8 +11,6 @@ import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
 
 import java.util.Objects;
 
-import static me.darthpeti.townytweaks.Towny.util.ConfigUtil.armorStandOnlyInPlotType;
-
 public class ArmorStandRestriction implements Listener {
     @EventHandler
     public void onArmorStand(PlayerArmorStandManipulateEvent event) {
@@ -22,9 +20,9 @@ public class ArmorStandRestriction implements Listener {
         if (ConfigUtil.armorStandRestriction()) {
             if (!TownyAPI.getInstance().isWilderness(armorstandLoc)) {
                 if (!player.hasPermission("townytweaks.admin.bypassarmorstand")) {
-                    if(!Objects.equals(Objects.requireNonNull(TownyAPI.getInstance().getTownBlock(armorstandLoc)).getType(), armorStandOnlyInPlotType())){
+                    if(!Objects.equals(Objects.requireNonNull(TownyAPI.getInstance().getTownBlock(armorstandLoc)).getType(), ConfigUtil.armorStandOnlyInPlotType())){
                         event.setCancelled(true);
-                        player.sendMessage(Main.prefix + "§cYou can only use armor stands in  §e" + armorStandOnlyInPlotType().getName() + "§c plots.");
+                        player.sendMessage(Main.prefix + "§cYou can only use armor stands in  §e" + ConfigUtil.armorStandOnlyInPlotType().getName() + "§c plots.");
                     }
                 }
             }
