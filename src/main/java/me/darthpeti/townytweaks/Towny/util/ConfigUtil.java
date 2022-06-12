@@ -10,61 +10,61 @@ public class ConfigUtil {
     }
 
     public static TownBlockType armorStandOnlyInPlotType(){
-        //ARENA,BANK,COMMERCIAL,EMBASSY,FARM,INN,JAIL,RESIDENTIAL,WILDS
         String plotType = Main.instance.getConfig().getString("allow-armorstand-only-in-plottype");
-        if(plotType.equalsIgnoreCase("ARENA")){
-            return TownBlockType.ARENA;
-        } else if(plotType.equalsIgnoreCase("BANK")){
-            return TownBlockType.BANK;
-        } else if(plotType.equalsIgnoreCase("COMMERCIAL")){
-            return TownBlockType.COMMERCIAL;
-        } else if(plotType.equalsIgnoreCase("EMBASSY")){
-            return TownBlockType.EMBASSY;
-        } else if(plotType.equalsIgnoreCase("FARM")){
-            return TownBlockType.FARM;
-        } else if(plotType.equalsIgnoreCase("INN")){
-            return TownBlockType.INN;
-        } else if(plotType.equalsIgnoreCase("JAIL")){
-            return TownBlockType.JAIL;
-        } else if(plotType.equalsIgnoreCase("RESIDENTIAL")){
-            return TownBlockType.RESIDENTIAL;
-        } else if(plotType.equalsIgnoreCase("WILDS")){
-            return TownBlockType.WILDS;
-        }
-        return null;
+        return checkPlot(plotType);
     }
 
     public static boolean shulkerRestriction() {
         return Main.instance.getConfig().getBoolean("enable-shulker-restriction");
     }
 
-
     public static TownBlockType allowShulkersInPlotType(){
-        //ARENA,BANK,COMMERCIAL,EMBASSY,FARM,INN,JAIL,RESIDENTIAL,WILDS
         String plotType = Main.instance.getConfig().getString("allow-shulkers-only-in-plottype");
-        if(plotType.equalsIgnoreCase("ARENA")){
-            return TownBlockType.ARENA;
-        } else if(plotType.equalsIgnoreCase("BANK")){
-            return TownBlockType.BANK;
-        } else if(plotType.equalsIgnoreCase("COMMERCIAL")){
-            return TownBlockType.COMMERCIAL;
-        } else if(plotType.equalsIgnoreCase("EMBASSY")){
-            return TownBlockType.EMBASSY;
-        } else if(plotType.equalsIgnoreCase("FARM")){
-            return TownBlockType.FARM;
-        } else if(plotType.equalsIgnoreCase("INN")){
-            return TownBlockType.INN;
-        } else if(plotType.equalsIgnoreCase("JAIL")){
-            return TownBlockType.JAIL;
-        } else if(plotType.equalsIgnoreCase("RESIDENTIAL")){
-            return TownBlockType.RESIDENTIAL;
-        } else if(plotType.equalsIgnoreCase("WILDS")){
-            return TownBlockType.WILDS;
-        }
-        return null;
+        return checkPlot(plotType);
+    }
+
+    public static boolean brewBarrelRestrction(){
+        return Main.instance.getConfig().getBoolean("enable-brew-barrels-restriction");
+    }
+
+    public static TownBlockType allowBarrelsInPlotType(){
+        String plotType = Main.instance.getConfig().getString("allow-shulkers-only-in-plottype");
+        return checkPlot(plotType);
+    }
+
+    public static boolean keepInventoryInSiege(){
+        return Main.instance.getConfig().getBoolean("keep-inventory-in-sieges");
     }
 
     public static boolean preventSpawnTrapInCapitals(){
         return Main.instance.getConfig().getBoolean("spawn-trap-prevention-in-capitals");
+    }
+
+    public static boolean allowPearlsInBesiegedTowns(){
+        return Main.instance.getConfig().getBoolean("allow-pearl-in-besieged-towns");
+    }
+
+    public static TownBlockType checkPlot(String plotTypeName){
+        //ARENA,BANK,COMMERCIAL,EMBASSY,FARM,INN,JAIL,RESIDENTIAL,WILDS
+        if(plotTypeName.equalsIgnoreCase("ARENA")){
+            return TownBlockType.ARENA;
+        } else if(plotTypeName.equalsIgnoreCase("BANK")){
+            return TownBlockType.BANK;
+        } else if(plotTypeName.equalsIgnoreCase("COMMERCIAL")){
+            return TownBlockType.COMMERCIAL;
+        } else if(plotTypeName.equalsIgnoreCase("EMBASSY")){
+            return TownBlockType.EMBASSY;
+        } else if(plotTypeName.equalsIgnoreCase("FARM")){
+            return TownBlockType.FARM;
+        } else if(plotTypeName.equalsIgnoreCase("INN")){
+            return TownBlockType.INN;
+        } else if(plotTypeName.equalsIgnoreCase("JAIL")){
+            return TownBlockType.JAIL;
+        } else if(plotTypeName.equalsIgnoreCase("RESIDENTIAL")){
+            return TownBlockType.RESIDENTIAL;
+        } else if(plotTypeName.equalsIgnoreCase("WILDS")){
+            return TownBlockType.WILDS;
+        }
+        return null;
     }
 }
