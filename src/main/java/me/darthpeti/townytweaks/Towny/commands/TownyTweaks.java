@@ -1,4 +1,4 @@
-package me.darthpeti.townytweaks.Towny.Commands;
+package me.darthpeti.townytweaks.Towny.commands;
 
 import me.darthpeti.townytweaks.Main;
 import org.bukkit.command.Command;

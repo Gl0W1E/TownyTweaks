@@ -1,6 +1,6 @@
 package me.darthpeti.townytweaks;
 
-import me.darthpeti.townytweaks.Towny.Listeners.*;
+import me.darthpeti.townytweaks.Towny.listeners.*;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
