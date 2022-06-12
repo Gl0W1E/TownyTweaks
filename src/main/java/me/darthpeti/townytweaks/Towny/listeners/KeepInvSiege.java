@@ -1,4 +1,4 @@
-package me.darthpeti.townytweaks.Towny;
+package me.darthpeti.townytweaks.Towny.listeners;
 
 import com.gmail.goosius.siegewar.utils.SiegeWarDistanceUtil;
 import me.darthpeti.townytweaks.Main;
