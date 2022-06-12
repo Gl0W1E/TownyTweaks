@@ -1,4 +1,4 @@
-package me.darthpeti.townytweaks.Towny;
+package me.darthpeti.townytweaks.Towny.Listeners;
 
 import com.palmergames.bukkit.towny.TownyAPI;
 import me.darthpeti.townytweaks.Main;
