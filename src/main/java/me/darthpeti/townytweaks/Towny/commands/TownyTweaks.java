@@ -97,8 +97,7 @@ public class TownyTweaks implements CommandExecutor {
                             sender.sendMessage(Main.prefix + "§e/townytweaks set keep-inventory-in-sieges [§atrue§e/§cfalse§e]");
                         Main.log.info(Main.prefix + "§e/townytweaks set keep-inventory-in-sieges [§atrue§e/§cfalse§e]");
                     }
-                }
-                else if(args[1].equalsIgnoreCase("allow-pearls-in-besieged-towns")) {
+                } else if(args[1].equalsIgnoreCase("allow-pearls-in-besieged-towns")) {
                     if(args.length > 2) {
                         Main.instance.getConfig().set("allow-pearls-in-besieged-towns", args[2].toLowerCase());
                         Main.instance.saveConfig();
@@ -111,7 +110,21 @@ public class TownyTweaks implements CommandExecutor {
                             sender.sendMessage(Main.prefix + "§e/townytweaks set allow-pearls-in-besieged-towns [§atrue§e/§cfalse§e]");
                         Main.log.info(Main.prefix + "§e/townytweaks set allow-pearls-in-besieged-towns [§atrue§e/§cfalse§e]");
                     }
+                } else if(args[1].equalsIgnoreCase("spawn-trap-prevention-in-capitals")) {
+                    if(args.length > 2) {
+                        Main.instance.getConfig().set("spawn-trap-prevention-in-capitals", args[2].toLowerCase());
+                        Main.instance.saveConfig();
+                        Main.instance.reloadConfig();
+                        if(sender instanceof Player)
+                            sender.sendMessage(Main.prefix + "§espawn-trap-prevention-in-capitals has been set to §b" + args[2].toLowerCase());
+                        Main.log.info(Main.prefix + "§espawn-trap-prevention-in-capitals has been set to §b" + args[2].toLowerCase());
+                    } else {
+                        if(sender instanceof Player)
+                            sender.sendMessage(Main.prefix + "§e/townytweaks set spawn-trap-prevention-in-capitals [§atrue§e/§cfalse§e]");
+                        Main.log.info(Main.prefix + "§e/townytweaks set spawn-trap-prevention-in-capitals [§atrue§e/§cfalse§e]");
+                    }
                 }
+
             }
         }
         return false;

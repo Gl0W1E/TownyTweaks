@@ -1,10 +1,14 @@
 package me.darthpeti.townytweaks;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
+import com.palmergames.bukkit.towny.object.WorldCoord;
 import me.darthpeti.townytweaks.Towny.listeners.*;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 public final class Main extends JavaPlugin {
@@ -12,8 +16,7 @@ public final class Main extends JavaPlugin {
     public static Main instance;
     public static Logger log = Bukkit.getLogger();
     public static String prefix = "§e[§bTownyTweaks§e]:§f ";
-
-
+    public static final Cache<WorldCoord, Boolean> siegeZoneCache = CacheBuilder.newBuilder().expireAfterWrite(1, TimeUnit.MINUTES).build();
     FileConfiguration config = getConfig();
 
     @Override

@@ -2,32 +2,37 @@ package me.darthpeti.townytweaks.Towny.listeners;
 
 import com.palmergames.bukkit.towny.TownyAPI;
 import me.darthpeti.townytweaks.Main;
-import org.bukkit.ChatColor;
-import org.bukkit.block.Block;
-import org.bukkit.block.ShulkerBox;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+import java.util.Objects;
+
+import static me.darthpeti.townytweaks.Towny.util.ConfigUtil.allowShulkersInPlotType;
+import static me.darthpeti.townytweaks.Towny.util.ConfigUtil.shulkerRestriction;
+
 public class ShulkerRestrictionInteract implements Listener {
+
     @EventHandler
-    public void onInteractWithShulk(PlayerInteractEvent event) {
-        Player player = event.getPlayer();
-        Block block = event.getClickedBlock();
-        if (block != null) {
-            if (block.getState() instanceof ShulkerBox) {
-                if (!TownyAPI.getInstance().isWilderness(block.getLocation())) {
-                    if (!TownyAPI.getInstance().getTownBlock(block.getLocation()).getType().getName().equalsIgnoreCase(Main.instance.getConfig().getString("allow-shulkers-only-in-plottype"))) {
-                        if (!player.hasPermission("townytweaks.admin.bypassshulkerbox")) {
-                            if (Main.instance.getConfig().getString("enable-shulker-restriction").equalsIgnoreCase("true")) {
-                                event.setCancelled(true);
-                                player.sendMessage(ChatColor.GOLD + "[Towny] " + ChatColor.RED + "You can only use shulker boxes in " + Main.instance.getConfig().getString("allow-shulkers-only-in-plottype") + " plots.");
-                            }
-                        }
+    public void onPlayerInteract (PlayerInteractEvent event) {
+        if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && shulkerRestriction()) {
+            Player player = event.getPlayer();
+            Material type = Objects.requireNonNull(event.getClickedBlock()).getType();
+            if (isClickableBlock(type)) {
+                if (!player.hasPermission("townytweaks.admin.bypassshulkerbox")) {
+                    if(!Objects.equals(Objects.requireNonNull(TownyAPI.getInstance().getTownBlock(event.getClickedBlock().getLocation())).getType(), allowShulkersInPlotType())){
+                        event.setCancelled(true);
+                        player.sendMessage(Main.prefix + "§cYou can only use shulker boxes in §e" + allowShulkersInPlotType().getName() + "§c plots.");
                     }
                 }
             }
         }
+    }
+
+    public static boolean isClickableBlock(Material type) {
+        return type.toString().endsWith("SHULKER_BOX");
     }
 }
