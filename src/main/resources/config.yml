@@ -45,3 +45,9 @@ enable-brew-barrels-restriction: "false"
 allow-barrels-only-in-plottype: "edit-plot-type-name-here"
 # Change the "edit-plot-type-name-here" to the name of the plot type you want brewing barrels to be only accessible in.
 # Give your admins townytweaks.admin.bypassbrew permission node if you want them to  bypass this restriction.
+
+
+keep-inventory-in-sieges: "false"
+# This was originally a feature in the old SiegeWar, until Goosius (Main SW Dev) returned for a while and moved some mechanics from SW to TownyCombat.
+# This feature partially still exists, but the radius of the keep inventory area is based on the location of any town's homeblock, instead of a Siege Banner.
+# WARNING: only military nation / town ranked players which can score points in the siege will keep inventory on death in siege zones.
