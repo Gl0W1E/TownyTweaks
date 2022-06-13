@@ -28,7 +28,7 @@ public class ConfigUtil {
     }
 
     public static TownBlockType allowBarrelsInPlotType(){
-        String plotType = Main.instance.getConfig().getString("allow-shulkers-only-in-plottype");
+        String plotType = Main.instance.getConfig().getString("allow-barrels-only-in-plottype");
         return checkPlot(plotType);
     }
 
