@@ -4,6 +4,7 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.palmergames.bukkit.towny.object.WorldCoord;
 import me.darthpeti.townytweaks.Towny.listeners.*;
+import me.darthpeti.townytweaks.Towny.listeners.Discord.NewTown;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -21,7 +22,6 @@ public final class Main extends JavaPlugin {
     public static Logger log = Bukkit.getLogger();
     public static String prefix = "§e[§bTownyTweaks§e]:§f ";
     public static final Cache<WorldCoord, Boolean> siegeZoneCache = CacheBuilder.newBuilder().expireAfterWrite(1, TimeUnit.MINUTES).build();
-    FileConfiguration config = getConfig();
     private File customConfigFile;
     private FileConfiguration customConfig;
 
@@ -59,6 +59,7 @@ public final class Main extends JavaPlugin {
         instance.getServer().getPluginManager().registerEvents(new BrewRestrict(), instance);
         instance.getServer().getPluginManager().registerEvents(new KeepInvSiege(), instance);
         instance.getServer().getPluginManager().registerEvents(new SiegeWarPearl(), instance);
+        instance.getServer().getPluginManager().registerEvents(new NewTown(getLogger()), instance);
     }
 
     @Override
