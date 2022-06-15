@@ -1,34 +1,31 @@
 package me.darthpeti.townytweaks.Towny.listeners.Discord;
 
-import com.palmergames.bukkit.towny.event.NewTownEvent;
+import com.palmergames.bukkit.towny.event.DeleteTownEvent;
 import me.darthpeti.townytweaks.Main;
 import me.darthpeti.townytweaks.Towny.util.DiscordWebhook;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
-
 import java.awt.*;
 import java.util.logging.Logger;
 
-
-public class NewTown implements Listener {
+public class DeletedTown implements Listener {
 
     private Logger logger;
 
-    public NewTown(Logger logger) {
+    public DeletedTown(Logger logger) {
         this.logger = logger;
     }
 
     @EventHandler
-    public void onTown(NewTownEvent event) {
-        if (Main.instance.getCustomConfig().getString("notification-town-creation").equalsIgnoreCase("true")) {
-            String townName = event.getTown().getName();
-            String mayorName = event.getTown().getMayor().getName();
+    public void onTown(DeleteTownEvent event) {
+        if (Main.instance.getCustomConfig().getString("notification-town-delete").equalsIgnoreCase("true")) {
+            String townName = event.getTownName();
             DiscordWebhook webhook = new DiscordWebhook(Main.instance.getCustomConfig().getString("webhook-url"));
 
             webhook.addEmbed(new DiscordWebhook.EmbedObject()
                     .setColor(new Color(255, 255, 255))
-                    .setDescription(mayorName + " has created a new town called " + townName + "!")
+                    .setDescription("The town of " + townName + " has been deleted!")
             );
             try {
                 webhook.execute();
@@ -38,3 +35,4 @@ public class NewTown implements Listener {
         }
     }
 }
+

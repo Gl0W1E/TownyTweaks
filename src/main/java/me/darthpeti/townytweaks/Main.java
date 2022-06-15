@@ -4,7 +4,7 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.palmergames.bukkit.towny.object.WorldCoord;
 import me.darthpeti.townytweaks.Towny.listeners.*;
-import me.darthpeti.townytweaks.Towny.listeners.Discord.NewTown;
+import me.darthpeti.townytweaks.Towny.listeners.Discord.*;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -60,6 +60,10 @@ public final class Main extends JavaPlugin {
         instance.getServer().getPluginManager().registerEvents(new KeepInvSiege(), instance);
         instance.getServer().getPluginManager().registerEvents(new SiegeWarPearl(), instance);
         instance.getServer().getPluginManager().registerEvents(new NewTown(getLogger()), instance);
+        instance.getServer().getPluginManager().registerEvents(new RuinedTown(getLogger()), instance);
+        instance.getServer().getPluginManager().registerEvents(new NewNation(getLogger()),instance);
+        instance.getServer().getPluginManager().registerEvents(new DeletedNation(getLogger()),instance);
+        instance.getServer().getPluginManager().registerEvents(new DeletedTown(getLogger()),instance);
     }
 
     @Override

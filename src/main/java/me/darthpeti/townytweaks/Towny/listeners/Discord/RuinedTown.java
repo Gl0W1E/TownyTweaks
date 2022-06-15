@@ -1,34 +1,32 @@
 package me.darthpeti.townytweaks.Towny.listeners.Discord;
 
-import com.palmergames.bukkit.towny.event.NewTownEvent;
+import com.palmergames.bukkit.towny.event.DeleteTownEvent;
+import com.palmergames.bukkit.towny.event.town.TownRuinedEvent;
 import me.darthpeti.townytweaks.Main;
 import me.darthpeti.townytweaks.Towny.util.DiscordWebhook;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
-
 import java.awt.*;
 import java.util.logging.Logger;
 
-
-public class NewTown implements Listener {
+public class RuinedTown implements Listener {
 
     private Logger logger;
 
-    public NewTown(Logger logger) {
+    public RuinedTown(Logger logger) {
         this.logger = logger;
     }
 
     @EventHandler
-    public void onTown(NewTownEvent event) {
-        if (Main.instance.getCustomConfig().getString("notification-town-creation").equalsIgnoreCase("true")) {
+    public void onTown(TownRuinedEvent event) {
+        if (Main.instance.getCustomConfig().getString("notification-town-ruins").equalsIgnoreCase("true")) {
             String townName = event.getTown().getName();
-            String mayorName = event.getTown().getMayor().getName();
             DiscordWebhook webhook = new DiscordWebhook(Main.instance.getCustomConfig().getString("webhook-url"));
 
             webhook.addEmbed(new DiscordWebhook.EmbedObject()
                     .setColor(new Color(255, 255, 255))
-                    .setDescription(mayorName + " has created a new town called " + townName + "!")
+                    .setDescription("The town of " + townName + " has fallen into ruins!")
             );
             try {
                 webhook.execute();
@@ -38,3 +36,4 @@ public class NewTown implements Listener {
         }
     }
 }
+

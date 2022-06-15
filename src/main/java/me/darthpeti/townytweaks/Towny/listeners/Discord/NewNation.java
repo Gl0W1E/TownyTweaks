@@ -1,34 +1,33 @@
 package me.darthpeti.townytweaks.Towny.listeners.Discord;
 
-import com.palmergames.bukkit.towny.event.NewTownEvent;
+import com.palmergames.bukkit.towny.event.DeleteTownEvent;
+import com.palmergames.bukkit.towny.event.NewNationEvent;
 import me.darthpeti.townytweaks.Main;
 import me.darthpeti.townytweaks.Towny.util.DiscordWebhook;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
-
 import java.awt.*;
 import java.util.logging.Logger;
 
-
-public class NewTown implements Listener {
+public class NewNation implements Listener {
 
     private Logger logger;
 
-    public NewTown(Logger logger) {
+    public NewNation(Logger logger) {
         this.logger = logger;
     }
 
     @EventHandler
-    public void onTown(NewTownEvent event) {
-        if (Main.instance.getCustomConfig().getString("notification-town-creation").equalsIgnoreCase("true")) {
-            String townName = event.getTown().getName();
-            String mayorName = event.getTown().getMayor().getName();
+    public void onTown(NewNationEvent event) {
+        if (Main.instance.getCustomConfig().getString("notification-nation-create").equalsIgnoreCase("true")) {
+            String nationName = event.getNation().getName();
+            String kingName = event.getNation().getKing().getName();
             DiscordWebhook webhook = new DiscordWebhook(Main.instance.getCustomConfig().getString("webhook-url"));
 
             webhook.addEmbed(new DiscordWebhook.EmbedObject()
                     .setColor(new Color(255, 255, 255))
-                    .setDescription(mayorName + " has created a new town called " + townName + "!")
+                    .setDescription(kingName + " has made a new nation called " + nationName + "!")
             );
             try {
                 webhook.execute();
@@ -38,3 +37,4 @@ public class NewTown implements Listener {
         }
     }
 }
+
