@@ -20,3 +20,22 @@ notification-nation-create: "false"
 
 notification-nation-disband: "false"
 # Set to true to notify players on discord whenever a nation is deleted/disbaned.
+
+notification-siegewar-session-start: "false"
+# Set to true to notify players on discord whenever a new Siege session starts.
+
+notification-siegewar-session-end: "false"
+# Set to true to notify players on discord whenever a Siege session ends.
+
+notification-siegewar-siege-start: "false"
+# Set to true to notify players on discord when someone starts a Siege.
+
+notification-siegewar-siege-end: "false"
+# Set to true to notify players on discord when a Siege ends.
+# The embed message will also include info such as who won, and if the besieged town surrendered.
+
+notification-siegewar-town-get-plundered: "false"
+# Set to true to notify players on discord whenever a town gets plundered.
+
+notification-siegewar-town-get-occupied: "false"
+# Set to true to notify players on discord whenever a town gets occupied.
