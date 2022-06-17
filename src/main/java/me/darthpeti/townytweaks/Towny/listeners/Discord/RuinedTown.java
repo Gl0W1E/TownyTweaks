@@ -25,7 +25,7 @@ public class RuinedTown implements Listener {
             DiscordWebhook webhook = new DiscordWebhook(Main.instance.getCustomConfig().getString("webhook-url"));
 
             webhook.addEmbed(new DiscordWebhook.EmbedObject()
-                    .setColor(new Color(255, 255, 255))
+                    .setColor(new Color(255, 0, 47))
                     .setDescription("The town of " + townName + " has fallen into ruins!")
             );
             try {

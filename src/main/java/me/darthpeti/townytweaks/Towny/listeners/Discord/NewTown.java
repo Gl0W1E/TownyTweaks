@@ -27,7 +27,7 @@ public class NewTown implements Listener {
             DiscordWebhook webhook = new DiscordWebhook(Main.instance.getCustomConfig().getString("webhook-url"));
 
             webhook.addEmbed(new DiscordWebhook.EmbedObject()
-                    .setColor(new Color(255, 255, 255))
+                    .setColor(new Color(0, 81, 255))
                     .setDescription(mayorName + " has created a new town called " + townName + "!")
             );
             try {

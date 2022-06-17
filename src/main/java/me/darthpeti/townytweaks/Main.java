@@ -64,6 +64,9 @@ public final class Main extends JavaPlugin {
         instance.getServer().getPluginManager().registerEvents(new NewNation(getLogger()),instance);
         instance.getServer().getPluginManager().registerEvents(new DeletedNation(getLogger()),instance);
         instance.getServer().getPluginManager().registerEvents(new DeletedTown(getLogger()),instance);
+        instance.getServer().getPluginManager().registerEvents(new SiegeSessionEnd(getLogger()), instance);
+        instance.getServer().getPluginManager().registerEvents(new SiegeSessionStart(getLogger()), instance);
+        instance.getServer().getPluginManager().registerEvents(new SiegeStart(getLogger()), instance);
     }
 
     @Override

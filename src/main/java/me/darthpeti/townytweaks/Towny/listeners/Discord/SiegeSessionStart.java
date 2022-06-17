@@ -1,7 +1,6 @@
 package me.darthpeti.townytweaks.Towny.listeners.Discord;
 
-import com.palmergames.bukkit.towny.event.DeleteTownEvent;
-import com.palmergames.bukkit.towny.event.NewNationEvent;
+import com.gmail.goosius.siegewar.events.BattleSessionStartedEvent;
 import me.darthpeti.townytweaks.Main;
 import me.darthpeti.townytweaks.Towny.util.DiscordWebhook;
 import org.bukkit.event.EventHandler;
@@ -10,24 +9,23 @@ import org.bukkit.event.Listener;
 import java.awt.*;
 import java.util.logging.Logger;
 
-public class NewNation implements Listener {
+public class SiegeSessionStart implements Listener {
 
     private Logger logger;
 
-    public NewNation(Logger logger) {
+    public SiegeSessionStart(Logger logger) {
         this.logger = logger;
     }
 
     @EventHandler
-    public void onTown(NewNationEvent event) {
-        if (Main.instance.getCustomConfig().getString("notification-nation-create").equalsIgnoreCase("true")) {
-            String nationName = event.getNation().getName();
-            String kingName = event.getNation().getKing().getName();
+    public void onTown(BattleSessionStartedEvent event) {
+        if (Main.instance.getCustomConfig().getString("notification-siegewar-session-start").equalsIgnoreCase("true")) {
+
             DiscordWebhook webhook = new DiscordWebhook(Main.instance.getCustomConfig().getString("webhook-url"));
 
             webhook.addEmbed(new DiscordWebhook.EmbedObject()
-                    .setColor(new Color(0, 81, 255))
-                    .setDescription(kingName + " has made a new nation called " + nationName + "!")
+                    .setColor(new Color(255, 157, 0))
+                    .setDescription("A new battle session has started!")
             );
             try {
                 webhook.execute();

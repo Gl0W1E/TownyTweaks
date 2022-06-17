@@ -24,7 +24,7 @@ public class DeletedTown implements Listener {
             DiscordWebhook webhook = new DiscordWebhook(Main.instance.getCustomConfig().getString("webhook-url"));
 
             webhook.addEmbed(new DiscordWebhook.EmbedObject()
-                    .setColor(new Color(255, 255, 255))
+                    .setColor(new Color(214, 99, 84))
                     .setDescription("The town of " + townName + " has been deleted!")
             );
             try {
