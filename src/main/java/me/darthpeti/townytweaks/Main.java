@@ -71,7 +71,7 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        instance.saveConfig();
+
     }
 
     public void loadConfig(){
