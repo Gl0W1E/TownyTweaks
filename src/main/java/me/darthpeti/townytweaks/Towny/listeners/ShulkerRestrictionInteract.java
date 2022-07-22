@@ -16,12 +16,12 @@ public class ShulkerRestrictionInteract implements Listener {
 
     @EventHandler
     public void onPlayerInteract (PlayerInteractEvent event) {
-        if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && ConfigUtil.shulkerRestriction()) {
+        if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK) && Main.instance.getConfig().getString("enable-shulker-restriction").equalsIgnoreCase("true")) {
             Player player = event.getPlayer();
             Material type = Objects.requireNonNull(event.getClickedBlock()).getType();
             if (isClickableBlock(type)) {
                 if (!player.hasPermission("townytweaks.admin.bypassshulkerbox")) {
-                    if(!Objects.equals(Objects.requireNonNull(TownyAPI.getInstance().getTownBlock(event.getClickedBlock().getLocation())).getType(), ConfigUtil.allowShulkersInPlotType())){
+                    if(!TownyAPI.getInstance().isWilderness(event.getClickedBlock().getLocation()) && !TownyAPI.getInstance().getTownBlock(event.getClickedBlock().getLocation()).getType().getName().equalsIgnoreCase(Main.instance.getConfig().getString("allow-shulkers-only-in-plottype"))) {
                         event.setCancelled(true);
                         player.sendMessage(Main.prefix + "§cYou can only use shulker boxes in §e" + ConfigUtil.allowShulkersInPlotType().getName() + "§c plots.");
                     }

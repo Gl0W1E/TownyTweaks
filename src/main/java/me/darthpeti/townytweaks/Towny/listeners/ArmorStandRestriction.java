@@ -17,10 +17,10 @@ public class ArmorStandRestriction implements Listener {
         Location armorstandLoc = event.getRightClicked().getLocation();
         Player player = event.getPlayer();
 
-        if (ConfigUtil.armorStandRestriction()) {
+        if (Main.instance.getConfig().getString("enable-armorstand-restriction").equalsIgnoreCase("true")) {
             if (!TownyAPI.getInstance().isWilderness(armorstandLoc)) {
                 if (!player.hasPermission("townytweaks.admin.bypassarmorstand")) {
-                    if(!Objects.equals(Objects.requireNonNull(TownyAPI.getInstance().getTownBlock(armorstandLoc)).getType(), ConfigUtil.armorStandOnlyInPlotType())){
+                    if(TownyAPI.getInstance().getTownBlock(event.getRightClicked().getLocation()).getType().getName() == Main.instance.getConfig().getString("allow-armorstand-only-in-plottype")){
                         event.setCancelled(true);
                         player.sendMessage(Main.prefix + "§cYou can only use armor stands in  §e" + ConfigUtil.armorStandOnlyInPlotType().getName() + "§c plots.");
                     }
