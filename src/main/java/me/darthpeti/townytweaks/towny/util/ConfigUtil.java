@@ -1,4 +1,4 @@
-package me.darthpeti.townytweaks.Towny.util;
+package me.darthpeti.townytweaks.towny.util;
 
 import com.palmergames.bukkit.towny.object.TownBlockType;
 import me.darthpeti.townytweaks.Main;
@@ -6,42 +6,42 @@ import me.darthpeti.townytweaks.Main;
 public class ConfigUtil {
 
     public static boolean armorStandRestriction() {
-        return Main.instance.getConfig().getBoolean("enable-armorstand-restriction");
+        return Main.getInstance().getConfig().getBoolean("enable-armorstand-restriction");
     }
 
     public static TownBlockType armorStandOnlyInPlotType(){
-        String plotType = Main.instance.getConfig().getString("allow-armorstand-only-in-plottype");
+        String plotType = Main.getInstance().getConfig().getString("allow-armorstand-only-in-plottype");
         return checkPlot(plotType);
     }
 
     public static boolean shulkerRestriction() {
-        return Main.instance.getConfig().getBoolean("enable-shulker-restriction");
+        return Main.getInstance().getConfig().getBoolean("enable-shulker-restriction");
     }
 
     public static TownBlockType allowShulkersInPlotType(){
-        String plotType = Main.instance.getConfig().getString("allow-shulkers-only-in-plottype");
+        String plotType = Main.getInstance().getConfig().getString("allow-shulkers-only-in-plottype");
         return checkPlot(plotType);
     }
 
     public static boolean brewBarrelRestrction(){
-        return Main.instance.getConfig().getBoolean("enable-brew-barrels-restriction");
+        return Main.getInstance().getConfig().getBoolean("enable-brew-barrels-restriction");
     }
 
     public static TownBlockType allowBarrelsInPlotType(){
-        String plotType = Main.instance.getConfig().getString("allow-barrels-only-in-plottype");
+        String plotType = Main.getInstance().getConfig().getString("allow-barrels-only-in-plottype");
         return checkPlot(plotType);
     }
 
     public static boolean keepInventoryInSiege(){
-        return Main.instance.getConfig().getBoolean("keep-inventory-in-sieges");
+        return Main.getInstance().getConfig().getBoolean("keep-inventory-in-sieges");
     }
 
     public static boolean preventSpawnTrapInCapitals(){
-        return Main.instance.getConfig().getBoolean("spawn-trap-prevention-in-capitals");
+        return Main.getInstance().getConfig().getBoolean("spawn-trap-prevention-in-capitals");
     }
 
     public static boolean allowPearlsInBesiegedTowns(){
-        return Main.instance.getConfig().getBoolean("allow-pearl-in-besieged-towns");
+        return Main.getInstance().getConfig().getBoolean("allow-pearl-in-besieged-towns");
     }
 
     public static TownBlockType checkPlot(String plotTypeName){

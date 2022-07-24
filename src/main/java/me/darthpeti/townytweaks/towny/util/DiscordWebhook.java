@@ -1,4 +1,4 @@
-package me.darthpeti.townytweaks.Towny.util;
+package me.darthpeti.townytweaks.towny.util;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.awt.Color;

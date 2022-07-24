@@ -1,4 +1,4 @@
-package me.darthpeti.townytweaks.Towny.listeners;
+package me.darthpeti.townytweaks.towny.listeners;
 
 import com.gmail.goosius.siegewar.SiegeController;
 import com.gmail.goosius.siegewar.objects.Siege;
@@ -6,7 +6,7 @@ import com.gmail.goosius.siegewar.utils.SiegeWarAllegianceUtil;
 import com.gmail.goosius.siegewar.utils.SiegeWarDistanceUtil;
 import com.palmergames.bukkit.towny.TownyUniverse;
 import com.palmergames.bukkit.towny.object.Resident;
-import me.darthpeti.townytweaks.Main;
+import me.darthpeti.townytweaks.towny.util.ConfigUtil;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -16,7 +16,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 public class KeepInvSiege implements Listener {
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
-        if (Main.instance.getConfig().getString("keep-inventory-ing-sieges").equalsIgnoreCase("true")) {
+        if (ConfigUtil.keepInventoryInSiege()) {
             Location deathloc = event.getPlayer().getLocation();
             Player player = event.getPlayer();
             Resident resident = TownyUniverse.getInstance().getResident(player.getName());

@@ -1,8 +1,8 @@
-package me.darthpeti.townytweaks.Towny.listeners.Discord;
+package me.darthpeti.townytweaks.towny.listeners.Discord;
 
 import com.palmergames.bukkit.towny.event.NewTownEvent;
 import me.darthpeti.townytweaks.Main;
-import me.darthpeti.townytweaks.Towny.util.DiscordWebhook;
+import me.darthpeti.townytweaks.towny.util.DiscordWebhook;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -21,10 +21,10 @@ public class NewTown implements Listener {
 
     @EventHandler
     public void onTown(NewTownEvent event) {
-        if (Main.instance.getCustomConfig().getString("notification-town-creation").equalsIgnoreCase("true")) {
+        if (Main.getInstance().getCustomConfig().getString("notification-town-creation").equalsIgnoreCase("true")) {
             String townName = event.getTown().getName();
             String mayorName = event.getTown().getMayor().getName();
-            DiscordWebhook webhook = new DiscordWebhook(Main.instance.getCustomConfig().getString("webhook-url"));
+            DiscordWebhook webhook = new DiscordWebhook(Main.getInstance().getCustomConfig().getString("webhook-url"));
 
             webhook.addEmbed(new DiscordWebhook.EmbedObject()
                     .setColor(new Color(0, 81, 255))

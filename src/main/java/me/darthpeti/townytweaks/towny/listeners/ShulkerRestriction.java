@@ -1,7 +1,8 @@
-package me.darthpeti.townytweaks.Towny.listeners;
+package me.darthpeti.townytweaks.towny.listeners;
 
 import com.palmergames.bukkit.towny.TownyAPI;
 import me.darthpeti.townytweaks.Main;
+import me.darthpeti.townytweaks.towny.util.ConfigUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.block.ShulkerBox;
@@ -15,13 +16,13 @@ public class ShulkerRestriction implements Listener {
     public void onShulkerPlace(BlockPlaceEvent event) {
         Player player = event.getPlayer();
         Location location = event.getBlock().getLocation();
-        if (Main.instance.getConfig().getString("enable-shulker-restriction").equalsIgnoreCase("true")) {
+        if (ConfigUtil.shulkerRestriction()) {
             if (!TownyAPI.getInstance().isWilderness(location)) {
-                if (!TownyAPI.getInstance().getTownBlock(location).getType().getName().equalsIgnoreCase(Main.instance.getConfig().getString("allow-shulkers-only-in-plottype"))) {
+                if (!TownyAPI.getInstance().getTownBlock(location).getType().getName().equalsIgnoreCase(Main.getInstance().getConfig().getString("allow-shulkers-only-in-plottype"))) {
                     if (!event.getPlayer().hasPermission("townytweaks.admin.bypassshulkerbox")) {
                         if (event.getBlockPlaced().getState() instanceof ShulkerBox) {
                             event.setCancelled(true);
-                            player.sendMessage(ChatColor.GOLD + "[Towny] " + ChatColor.RED + "You can only use shulker boxes in " + Main.instance.getConfig().getString("allow-shulkers-only-in-plottype") + " plots.");
+                            player.sendMessage(ChatColor.GOLD + "[Towny] " + ChatColor.RED + "You can only use shulker boxes in " + Main.getInstance().getConfig().getString("allow-shulkers-only-in-plottype") + " plots.");
                         }
                     }
                 }

@@ -1,11 +1,11 @@
-package me.darthpeti.townytweaks.Towny.listeners;
+package me.darthpeti.townytweaks.towny.listeners;
 
 import com.palmergames.bukkit.towny.TownyAPI;
 import com.palmergames.bukkit.towny.event.damage.TownyPlayerDamagePlayerEvent;
 import com.palmergames.bukkit.towny.object.WorldCoord;
 import me.darthpeti.townytweaks.Main;
-import me.darthpeti.townytweaks.Towny.util.ConfigUtil;
-import me.darthpeti.townytweaks.Towny.util.LocationUtil;
+import me.darthpeti.townytweaks.towny.util.ConfigUtil;
+import me.darthpeti.townytweaks.towny.util.LocationUtil;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -27,7 +27,7 @@ public class SpawnTrapPrevention implements Listener {
     public void onPlayerDeath(PlayerDeathEvent event) {
         if(TownyAPI.getInstance().isWilderness(event.getEntity().getLocation()))
             return;
-        if(Main.instance.getConfig().getString("spawn-trap-prevention-in-capital").equalsIgnoreCase("true")){
+        if(ConfigUtil.preventSpawnTrapInCapitals()){
             if (LocationUtil.isCloseToNationSpawn(event.getEntity().getLocation()) && LocationUtil.notInSiegeZone(WorldCoord.parseWorldCoord(event.getEntity())))
                 event.setKeepInventory(true);
                 event.setKeepLevel(true);

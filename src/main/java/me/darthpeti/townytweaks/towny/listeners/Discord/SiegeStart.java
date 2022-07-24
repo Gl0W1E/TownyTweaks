@@ -1,8 +1,8 @@
-package me.darthpeti.townytweaks.Towny.listeners.Discord;
+package me.darthpeti.townytweaks.towny.listeners.Discord;
 
 import com.gmail.goosius.siegewar.events.SiegeWarStartEvent;
 import me.darthpeti.townytweaks.Main;
-import me.darthpeti.townytweaks.Towny.util.DiscordWebhook;
+import me.darthpeti.townytweaks.towny.util.DiscordWebhook;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -19,9 +19,9 @@ public class SiegeStart implements Listener {
 
     @EventHandler
     public void onTown(SiegeWarStartEvent event) {
-        if (Main.instance.getCustomConfig().getString("notification-siegewar-session-start").equalsIgnoreCase("true")) {
+        if (Main.getInstance().getCustomConfig().getString("notification-siegewar-session-start").equalsIgnoreCase("true")) {
             if (event.getTargetTown().hasNation()) {
-                DiscordWebhook webhook = new DiscordWebhook(Main.instance.getCustomConfig().getString("webhook-url"));
+                DiscordWebhook webhook = new DiscordWebhook(Main.getInstance().getCustomConfig().getString("webhook-url"));
 
                 webhook.addEmbed(new DiscordWebhook.EmbedObject()
                         .setColor(new Color(255, 157, 0))
@@ -33,7 +33,7 @@ public class SiegeStart implements Listener {
                     logger.severe(e.getStackTrace().toString());
                 }
             } else {
-                DiscordWebhook webhook = new DiscordWebhook(Main.instance.getCustomConfig().getString("webhook-url"));
+                DiscordWebhook webhook = new DiscordWebhook(Main.getInstance().getCustomConfig().getString("webhook-url"));
 
                 webhook.addEmbed(new DiscordWebhook.EmbedObject()
                         .setColor(new Color(255, 157, 0))

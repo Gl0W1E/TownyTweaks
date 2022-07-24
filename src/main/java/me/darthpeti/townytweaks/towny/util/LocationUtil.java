@@ -1,4 +1,4 @@
-package me.darthpeti.townytweaks.Towny.util;
+package me.darthpeti.townytweaks.towny.util;
 
 import com.gmail.goosius.siegewar.SiegeController;
 import com.gmail.goosius.siegewar.objects.Siege;
@@ -87,7 +87,7 @@ public class LocationUtil {
 
     public static boolean notInSiegeZone(WorldCoord worldCoord) {
         try {
-            return Main.instance.siegeZoneCache.get(worldCoord, () -> !SiegeWarDistanceUtil.isLocationInActiveSiegeZone(toLocation(worldCoord)));
+            return Main.getInstance().siegeZoneCache.get(worldCoord, () -> !SiegeWarDistanceUtil.isLocationInActiveSiegeZone(toLocation(worldCoord)));
         } catch (ExecutionException e) {
             e.printStackTrace();
             return !SiegeWarDistanceUtil.isLocationInActiveSiegeZone(toLocation(worldCoord));

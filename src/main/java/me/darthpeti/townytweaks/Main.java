@@ -3,8 +3,8 @@ package me.darthpeti.townytweaks;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.palmergames.bukkit.towny.object.WorldCoord;
-import me.darthpeti.townytweaks.Towny.listeners.*;
-import me.darthpeti.townytweaks.Towny.listeners.Discord.*;
+import me.darthpeti.townytweaks.towny.listeners.*;
+import me.darthpeti.townytweaks.towny.listeners.Discord.*;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -24,6 +24,10 @@ public final class Main extends JavaPlugin {
     public static final Cache<WorldCoord, Boolean> siegeZoneCache = CacheBuilder.newBuilder().expireAfterWrite(1, TimeUnit.MINUTES).build();
     private File customConfigFile;
     private FileConfiguration customConfig;
+
+    public static Main getInstance(){
+        return instance;
+    }
 
     @Override
     public void onEnable() {

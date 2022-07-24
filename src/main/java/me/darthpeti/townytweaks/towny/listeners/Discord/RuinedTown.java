@@ -1,9 +1,8 @@
-package me.darthpeti.townytweaks.Towny.listeners.Discord;
+package me.darthpeti.townytweaks.towny.listeners.Discord;
 
-import com.palmergames.bukkit.towny.event.DeleteTownEvent;
 import com.palmergames.bukkit.towny.event.town.TownRuinedEvent;
 import me.darthpeti.townytweaks.Main;
-import me.darthpeti.townytweaks.Towny.util.DiscordWebhook;
+import me.darthpeti.townytweaks.towny.util.DiscordWebhook;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -20,9 +19,9 @@ public class RuinedTown implements Listener {
 
     @EventHandler
     public void onTown(TownRuinedEvent event) {
-        if (Main.instance.getCustomConfig().getString("notification-town-ruins").equalsIgnoreCase("true")) {
+        if (Main.getInstance().getCustomConfig().getString("notification-town-ruins").equalsIgnoreCase("true")) {
             String townName = event.getTown().getName();
-            DiscordWebhook webhook = new DiscordWebhook(Main.instance.getCustomConfig().getString("webhook-url"));
+            DiscordWebhook webhook = new DiscordWebhook(Main.getInstance().getCustomConfig().getString("webhook-url"));
 
             webhook.addEmbed(new DiscordWebhook.EmbedObject()
                     .setColor(new Color(255, 0, 47))

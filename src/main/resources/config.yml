@@ -13,7 +13,7 @@
 # Required server type: Paper or any fork of Paper.
 # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-enable-armorstand-restriction: "false"
+enable-armorstand-restriction: false
 # Set to false to allow armor stand interaction anywhere, as long as the manipulator has permissions to the plot the stand is in.
 # Set to true if you want the opposite, configure it below.
 
@@ -22,7 +22,7 @@ allow-armorstand-only-in-plottype: "edit-plot-type-name-here"
 # This also requires you to create the plot at the bottom of main Towny's config.yml incase you are using a custom plot type.
 # Give your admins townytweaks.admin.bypassarmorstand permission node if you want them to bypass this restriction.
 
-enable-shulker-restriction: "false"
+enable-shulker-restriction: false
 # Set to false to allow shulker boxes being broken and interacted with anywhere, as long as the player has permissions to the plot the shulker is in.
 # Set to true if you want the opposite, configure it below.
 
@@ -30,7 +30,7 @@ allow-shulkers-only-in-plottype: "edit-plot-type-name-here"
 # Change the "edit-plot-type-name-here" to the name of the plot type you want shulker boxes to be only accessible in.
 # Give your admins townytweaks.admin.bypassshulkerbox permission node if you want them to bypass this restriction.
 
-enable-brew-barrels-restriction: "false"
+enable-brew-barrels-restriction: false
 # Set to false if you don't use the Brewery plugin, or just don't want any restrictions to be implemented regarding brewery.
 # Set to true if you want the opposite, configure it below.
 # WARNING: You need atleast version 3.1 of the brewery plugin for the restriction to properly work.
@@ -40,15 +40,15 @@ allow-barrels-only-in-plottype: "edit-plot-type-name-here"
 # Change the "edit-plot-type-name-here" to the name of the plot type you want brewing barrels to be only accessible in.
 # Give your admins townytweaks.admin.bypassbrew permission node if you want them to  bypass this restriction.
 
-keep-inventory-in-sieges: "false"
+keep-inventory-in-sieges: false
 # This was originally a feature in the old SiegeWar, until Goosius (Main SW Dev) returned for a while and moved some mechanics from SW to TownyCombat.
 # This feature partially still exists, but the radius of the keep inventory area is based on the location of any town's homeblock, instead of a Siege Banner.
 # WARNING: only military nation / town ranked players which can score points in the siege will keep inventory on death in siege zones.
 
-allow-pearl-in-besieged-towns: "false"
+allow-pearl-in-besieged-towns: false
 # This was originally a feature on EarthPol and never got implemented into SiegeWar because the Gooius (Main SW Dev) had left around the same time
 # This feature will allow players to teleport in towns that are in an active siege zone while ignoring the Town's Flags that would otherwise deny it.
 
-spawn-trap-prevention-in-capitals: "false"
+spawn-trap-prevention-in-capitals: false
 # This was originally made for EarthMC to prevent nation spawn trapping where a player would be in a surprise pvp zone.
 # This feature was updated to work with SiegeWar at the request of EarthPol's Devs. This was originally mostly written by @Warriorrrr.
