@@ -7,7 +7,6 @@ import com.gmail.goosius.siegewar.utils.SiegeWarDistanceUtil;
 import com.palmergames.bukkit.towny.TownyUniverse;
 import com.palmergames.bukkit.towny.object.Resident;
 import me.darthpeti.townytweaks.Main;
-import me.darthpeti.townytweaks.Towny.util.ConfigUtil;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -25,6 +24,7 @@ public class KeepInvSiege implements Listener {
                 if (SiegeWarDistanceUtil.isLocationInActiveSiegeZone(deathloc)) {
                     Siege siege = SiegeController.getActiveSiegeAtLocation(deathloc);
                     if (SiegeWarAllegianceUtil.isPlayerOnTownFriendlySide(player, resident, siege) || SiegeWarAllegianceUtil.isPlayerOnTownHostileSide(player, resident, siege)) {
+                        event.getDrops().clear();
                         event.setKeepInventory(true);
                     }
                 }
