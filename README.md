@@ -1,6 +1,4 @@
-# TownyTweaks
-A minecraft addon plugin for the popular Towny plugin. TownyTweaks offers/will offer:
-* Plot restrictions for specific actions/blocks/entities
-* Old SiegeWar keep inventory option (you keep your inventory if you die in a siegezone and you have a military rank)
-* Towny notifications on discord via webhooks.
-* And more !
+# REPOSITORY MOVED
+ - This plugin repository has now moved to the following link:
+ - https://github.com/Imperium-Code-Group/TownyTweaks
+ - This repository is now archived, new releases will be published on the "Imperium-Code-Group" organization.
