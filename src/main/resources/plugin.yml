@@ -8,4 +8,4 @@ commands:
   townytweaks:
     permission: townytweaks.admin
     permission-message: You do not have permission to use this command.
-    usage: /townytweaks <reload> or /townytweaks <set> <option> <var>
+    usage: /townytweaks reload

@@ -3,6 +3,7 @@ package me.darthpeti.townytweaks;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.palmergames.bukkit.towny.object.WorldCoord;
+import me.darthpeti.townytweaks.towny.commands.TownyTweaks;
 import me.darthpeti.townytweaks.towny.listeners.*;
 import me.darthpeti.townytweaks.towny.listeners.Discord.*;
 import org.bukkit.Bukkit;
@@ -20,7 +21,6 @@ public final class Main extends JavaPlugin {
 
     public static Main instance;
     public static Logger log = Bukkit.getLogger();
-    public static String prefix = "§e[§bTownyTweaks§e]:§f ";
     public static final Cache<WorldCoord, Boolean> siegeZoneCache = CacheBuilder.newBuilder().expireAfterWrite(1, TimeUnit.MINUTES).build();
     private File customConfigFile;
     private FileConfiguration customConfig;
@@ -29,12 +29,15 @@ public final class Main extends JavaPlugin {
         return instance;
     }
 
+    public static String prefix;
+
     @Override
     public void onEnable() {
         instance = this;
+        prefix = instance.getConfig().getString("townytweaks-prefix");
         createCustomConfig();
         loadConfig();
-        registerListeners();
+        registerListenersAndCommands();
     }
 
     public void createCustomConfig(){
@@ -56,7 +59,7 @@ public final class Main extends JavaPlugin {
         return this.customConfig;
     }
 
-    public void registerListeners(){
+    public void registerListenersAndCommands(){
         instance.getServer().getPluginManager().registerEvents(new ArmorStandRestriction(), instance);
         instance.getServer().getPluginManager().registerEvents(new ShulkerRestriction(), instance);
         instance.getServer().getPluginManager().registerEvents(new ShulkerRestrictionInteract(), instance);
@@ -71,6 +74,7 @@ public final class Main extends JavaPlugin {
         instance.getServer().getPluginManager().registerEvents(new SiegeSessionEnd(getLogger()), instance);
         instance.getServer().getPluginManager().registerEvents(new SiegeSessionStart(getLogger()), instance);
         instance.getServer().getPluginManager().registerEvents(new SiegeStart(getLogger()), instance);
+        instance.getCommand("townytweaks").setExecutor(new TownyTweaks());
     }
 
     @Override
@@ -82,6 +86,5 @@ public final class Main extends JavaPlugin {
         instance.getConfig().options().copyDefaults(false);
         instance.saveDefaultConfig();
     }
-
 
 }

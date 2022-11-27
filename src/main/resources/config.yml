@@ -7,11 +7,16 @@
 # You will find almost every feature that isn't in Towny here and you can always enable or disable it!
 # If one of the features TownyTweaks offers ends up added to Towny, it is recommended that you turn the feature off in this config
 # and configure the feature in the main Towny config file (/plugins/Towny/settings/)
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# Required Towny version for this plugin: 0.98.2.0.
-# Required Java version: 17.
-# Required server type: Paper or any fork of Paper.
+# Required Towny version for this plugin: 0.98.4.0.   #
+# Required Java version: 17.                          #
+# Required server type: Paper or any fork of Paper.   #
+# Required Minecraft version: 1.18.2 or above.        #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+townytweaks-prefix: "§e[§bTownyTweaks§e]:§f "
+# TownyTweaks ingame output prefix.
 
 enable-armorstand-restriction: false
 # Set to false to allow armor stand interaction anywhere, as long as the manipulator has permissions to the plot the stand is in.

@@ -15,116 +15,11 @@ public class TownyTweaks implements CommandExecutor {
                 Main.getInstance().reloadConfig();
                 if(sender instanceof Player){
                     sender.sendMessage(Main.prefix + "Configuration Reloaded.");
+                    return true;
                 } else {
-                    Main.log.info("Configuration Reloaded");
+                    Main.log.info("TownyTweaks Config Reloaded");
+                    return true;
                 }
-            } else if(args[0].equalsIgnoreCase("set")) {
-                if(args[1].equalsIgnoreCase("enable-armorstand-restriction")){
-                    if(args.length > 2) {
-                        Main.getInstance().getConfig().set("enable-armorstand-restriction", args[2].toLowerCase());
-                        Main.getInstance().saveConfig();
-                        Main.getInstance().reloadConfig();
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§eenable-armorstand-restriction has been set to §b" + args[2].toLowerCase());
-                        Main.log.info(Main.prefix + "§eenable-armorstand-restriction has been set to §b" + args[2].toLowerCase());
-                    } else {
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§e/townytweaks set enable-armorstand-restriction [§atrue§e/§cfalse§e]");
-                        Main.log.info(Main.prefix + "§e/townytweaks set enable-armorstand-restriction [§atrue§e/§cfalse§e]");
-                    }
-                } else if(args[1].equalsIgnoreCase("allow-armorstand-only-in-plottype")) {
-                    if(args.length > 2) {
-                        Main.getInstance().getConfig().set("allow-armorstand-only-in-plottype", args[2].toLowerCase());
-                        Main.getInstance().saveConfig();
-                        Main.getInstance().reloadConfig();
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§eallow-armorstand-only-in-plottype has been set to §b" + args[2].toLowerCase());
-                        Main.log.info(Main.prefix + "§eallow-armorstand-only-in-plottype has been set to §b" + args[2].toLowerCase());
-                    } else {
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§e/townytweaks set allow-armorstand-only-in-plottype [§aARENA,BANK,COMMERCIAL,EMBASSY,FARM,INN,JAIL,RESIDENTIAL,WILDS§e]");
-                        Main.log.info(Main.prefix + "§e/townytweaks set allow-armorstand-only-in-plottype [§aARENA,BANK,COMMERCIAL,EMBASSY,FARM,INN,JAIL,RESIDENTIAL,WILDS§e]");
-                    }
-                } else if(args[1].equalsIgnoreCase("enable-shulker-restriction")) {
-                    if(args.length > 2) {
-                        Main.getInstance().getConfig().set("enable-shulker-restriction", args[2].toLowerCase());
-                        Main.getInstance().saveConfig();
-                        Main.getInstance().reloadConfig();
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§eenable-shulker-restriction has been set to §b" + args[2].toLowerCase());
-                        Main.log.info(Main.prefix + "§eenable-shulker-restriction has been set to §b" + args[2].toLowerCase());
-                    } else {
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§e/townytweaks set enable-shulker-restriction [§atrue§e/§cfalse§e]");
-                        Main.log.info(Main.prefix + "§e/townytweaks set enable-shulker-restriction [§atrue§e/§cfalse§e]");
-                    }
-                } else if(args[1].equalsIgnoreCase("enable-brew-barrels-restriction")) {
-                    if(args.length > 2) {
-                        Main.getInstance().getConfig().set("enable-brew-barrels-restriction", args[2].toLowerCase());
-                        Main.getInstance().saveConfig();
-                        Main.getInstance().reloadConfig();
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§eenable-brew-barrels-restriction has been set to §b" + args[2].toLowerCase());
-                        Main.log.info(Main.prefix + "§eenable-brew-barrels-restriction has been set to §b" + args[2].toLowerCase());
-                    } else {
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§e/townytweaks set enable-brew-barrels-restriction [§atrue§e/§cfalse§e]");
-                        Main.log.info(Main.prefix + "§e/townytweaks set enable-brew-barrels-restriction [§atrue§e/§cfalse§e]");
-                    }
-                } else if(args[1].equalsIgnoreCase("allow-barrels-only-in-plottype")) {
-                    if(args.length > 2) {
-                        Main.getInstance().getConfig().set("allow-barrels-only-in-plottype", args[2].toLowerCase());
-                        Main.getInstance().saveConfig();
-                        Main.getInstance().reloadConfig();
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§eallow-barrels-only-in-plottype has been set to §b" + args[2].toLowerCase());
-                        Main.log.info(Main.prefix + "§eallow-barrels-only-in-plottype has been set to §b" + args[2].toLowerCase());
-                    } else {
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§e/townytweaks set allow-barrels-only-in-plottype [§aARENA,BANK,COMMERCIAL,EMBASSY,FARM,INN,JAIL,RESIDENTIAL,WILDS§e]");
-                        Main.log.info(Main.prefix + "§e/townytweaks set allow-barrels-only-in-plottype [§aARENA,BANK,COMMERCIAL,EMBASSY,FARM,INN,JAIL,RESIDENTIAL,WILDS§e]");
-                    }
-                } else if(args[1].equalsIgnoreCase("keep-inventory-in-sieges")) {
-                    if(args.length > 2) {
-                        Main.getInstance().getConfig().set("keep-inventory-in-sieges", args[2].toLowerCase());
-                        Main.getInstance().saveConfig();
-                        Main.getInstance().reloadConfig();
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§ekeep-inventory-in-sieges has been set to §b" + args[2].toLowerCase());
-                        Main.log.info(Main.prefix + "§ekeep-inventory-in-sieges has been set to §b" + args[2].toLowerCase());
-                    } else {
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§e/townytweaks set keep-inventory-in-sieges [§atrue§e/§cfalse§e]");
-                        Main.log.info(Main.prefix + "§e/townytweaks set keep-inventory-in-sieges [§atrue§e/§cfalse§e]");
-                    }
-                } else if(args[1].equalsIgnoreCase("allow-pearls-in-besieged-towns")) {
-                    if(args.length > 2) {
-                        Main.getInstance().getConfig().set("allow-pearls-in-besieged-towns", args[2].toLowerCase());
-                        Main.getInstance().saveConfig();
-                        Main.getInstance().reloadConfig();
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§eallow-pearls-in-besieged-towns has been set to §b" + args[2].toLowerCase());
-                        Main.log.info(Main.prefix + "§eallow-pearls-in-besieged-towns has been set to §b" + args[2].toLowerCase());
-                    } else {
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§e/townytweaks set allow-pearls-in-besieged-towns [§atrue§e/§cfalse§e]");
-                        Main.log.info(Main.prefix + "§e/townytweaks set allow-pearls-in-besieged-towns [§atrue§e/§cfalse§e]");
-                    }
-                } else if(args[1].equalsIgnoreCase("spawn-trap-prevention-in-capitals")) {
-                    if(args.length > 2) {
-                        Main.getInstance().getConfig().set("spawn-trap-prevention-in-capitals", args[2].toLowerCase());
-                        Main.getInstance().saveConfig();
-                        Main.getInstance().reloadConfig();
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§espawn-trap-prevention-in-capitals has been set to §b" + args[2].toLowerCase());
-                        Main.log.info(Main.prefix + "§espawn-trap-prevention-in-capitals has been set to §b" + args[2].toLowerCase());
-                    } else {
-                        if(sender instanceof Player)
-                            sender.sendMessage(Main.prefix + "§e/townytweaks set spawn-trap-prevention-in-capitals [§atrue§e/§cfalse§e]");
-                        Main.log.info(Main.prefix + "§e/townytweaks set spawn-trap-prevention-in-capitals [§atrue§e/§cfalse§e]");
-                    }
-                }
-
             }
         }
         return false;
