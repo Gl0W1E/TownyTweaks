@@ -12,7 +12,7 @@
 # Required Towny version for this plugin: 0.98.4.0.   #
 # Required Java version: 17.                          #
 # Required server type: Paper or any fork of Paper.   #
-# Required Minecraft version: 1.18.2 or above.        #
+# Required Minecraft version: 1.16.5 or above.        #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 townytweaks-prefix: "§e[§bTownyTweaks§e]:§f "
