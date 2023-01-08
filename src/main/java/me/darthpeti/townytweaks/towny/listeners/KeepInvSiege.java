@@ -17,8 +17,8 @@ public class KeepInvSiege implements Listener {
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
         if (ConfigUtil.keepInventoryInSiege()) {
-            Location deathloc = event.getPlayer().getLocation();
-            Player player = event.getPlayer();
+            Location deathloc = event.getEntity().getLocation();
+            Player player = event.getEntity();
             Resident resident = TownyUniverse.getInstance().getResident(player.getName());
             if (player.hasPermission("siegewar.nation.siege.battle.points") || player.hasPermission("siegewar.town.siege.battle.points")) {
                 if (SiegeWarDistanceUtil.isLocationInActiveSiegeZone(deathloc)) {
