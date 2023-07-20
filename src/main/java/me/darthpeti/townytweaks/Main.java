@@ -10,6 +10,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -60,20 +61,26 @@ public final class Main extends JavaPlugin {
     }
 
     public void registerListenersAndCommands(){
-        instance.getServer().getPluginManager().registerEvents(new ArmorStandRestriction(), instance);
-        instance.getServer().getPluginManager().registerEvents(new ShulkerRestriction(), instance);
-        instance.getServer().getPluginManager().registerEvents(new ShulkerRestrictionInteract(), instance);
-        instance.getServer().getPluginManager().registerEvents(new BrewRestrict(), instance);
-        instance.getServer().getPluginManager().registerEvents(new KeepInvSiege(), instance);
-        instance.getServer().getPluginManager().registerEvents(new SiegeWarPearl(), instance);
-        instance.getServer().getPluginManager().registerEvents(new NewTown(getLogger()), instance);
-        instance.getServer().getPluginManager().registerEvents(new RuinedTown(getLogger()), instance);
-        instance.getServer().getPluginManager().registerEvents(new NewNation(getLogger()),instance);
-        instance.getServer().getPluginManager().registerEvents(new DeletedNation(getLogger()),instance);
-        instance.getServer().getPluginManager().registerEvents(new DeletedTown(getLogger()),instance);
-        instance.getServer().getPluginManager().registerEvents(new SiegeSessionEnd(getLogger()), instance);
-        instance.getServer().getPluginManager().registerEvents(new SiegeSessionStart(getLogger()), instance);
-        instance.getServer().getPluginManager().registerEvents(new SiegeStart(getLogger()), instance);
+        PluginManager pM = instance.getServer().getPluginManager();
+
+        if (getServer().getPluginManager().getPlugin("SiegeWar") != null) {
+            pM.registerEvents(new KeepInvSiege(), instance);
+            pM.registerEvents(new SiegeWarPearl(), instance);
+            pM.registerEvents(new SiegeSessionEnd(getLogger()), instance);
+            pM.registerEvents(new SiegeSessionStart(getLogger()), instance);
+            pM.registerEvents(new SiegeStart(getLogger()), instance);
+        }
+        if (getServer().getPluginManager().getPlugin("Brewery") != null) {
+            pM.registerEvents(new BrewRestrict(), instance);
+        }
+        pM.registerEvents(new ArmorStandRestriction(), instance);
+        pM.registerEvents(new ShulkerRestriction(), instance);
+        pM.registerEvents(new ShulkerRestrictionInteract(), instance);
+        pM.registerEvents(new NewTown(getLogger()), instance);
+        pM.registerEvents(new RuinedTown(getLogger()), instance);
+        pM.registerEvents(new NewNation(getLogger()),instance);
+        pM.registerEvents(new DeletedNation(getLogger()),instance);
+        pM.registerEvents(new DeletedTown(getLogger()),instance);
         instance.getCommand("townytweaks").setExecutor(new TownyTweaks());
     }
 

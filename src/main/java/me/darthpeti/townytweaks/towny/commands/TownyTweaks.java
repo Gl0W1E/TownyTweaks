@@ -12,7 +12,7 @@ public class TownyTweaks implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if(args.length > 0){
             if(args[0].equalsIgnoreCase("reload")){
-                Main.getInstance().saveConfig();
+                Main.getInstance().reloadConfig();
                 if(sender instanceof Player){
                     sender.sendMessage(Main.prefix + "Configuration Reloaded.");
                     return true;
