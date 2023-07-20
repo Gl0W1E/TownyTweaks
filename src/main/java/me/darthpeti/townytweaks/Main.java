@@ -64,7 +64,6 @@ public final class Main extends JavaPlugin {
         PluginManager pM = instance.getServer().getPluginManager();
 
         if (getServer().getPluginManager().getPlugin("SiegeWar") != null) {
-            pM.registerEvents(new KeepInvSiege(), instance);
             pM.registerEvents(new SiegeWarPearl(), instance);
             pM.registerEvents(new SiegeSessionEnd(getLogger()), instance);
             pM.registerEvents(new SiegeSessionStart(getLogger()), instance);
