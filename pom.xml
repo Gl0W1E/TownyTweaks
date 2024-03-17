@@ -78,13 +78,13 @@
         <dependency>
             <groupId>com.github.TownyAdvanced</groupId>
             <artifactId>Towny</artifactId>
-            <version>0.98.4.0</version>
+            <version>0.100.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.TownyAdvanced</groupId>
             <artifactId>SiegeWar</artifactId>
-            <version>2.6.1</version>
+            <version>2.9.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

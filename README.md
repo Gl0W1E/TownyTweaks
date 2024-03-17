@@ -1,3 +1,4 @@
 # TownyTweaks
-Information:\
-**https://github.com/darthpeti/PluginDescriptions/blob/main/townytweaks.md**
+Minimum Towny Version: `0.100.0.0` \
+Minimum SiegeWar Version: `2.9.0` \
+Minimum Brewery Version: `3.1`
