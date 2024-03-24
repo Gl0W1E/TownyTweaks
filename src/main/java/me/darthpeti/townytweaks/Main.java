@@ -39,6 +39,8 @@ public final class Main extends JavaPlugin {
         createCustomConfig();
         loadConfig();
         registerListenersAndCommands();
+        log.info(prefix+" TownyTweaks has been enabled. (Version: "+instance.getDescription().getVersion()+" )");
+        log.info(prefix+" TownyTweaks is a Towny addon plugin, created by DarthPeti. rework by: @Aomkoyo");
     }
 
     public void createCustomConfig(){
@@ -54,6 +56,10 @@ public final class Main extends JavaPlugin {
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
         }
+    }
+
+    public void reloadCustomConfig(){
+        customConfig = YamlConfiguration.loadConfiguration(customConfigFile);
     }
 
     public FileConfiguration getCustomConfig() {

@@ -22,7 +22,7 @@ public class NewNation implements Listener {
     @EventHandler
     public void onTown(NewNationEvent event) {
         // nation-create
-        String PrefixConfigName = "nation-disband";
+        String PrefixConfigName = "nation-create";
         FileConfiguration config = Main.getInstance().getCustomConfig();
         if (config.getString("notification-"+PrefixConfigName).equalsIgnoreCase("true")) {
             String nationName = event.getNation().getName();
