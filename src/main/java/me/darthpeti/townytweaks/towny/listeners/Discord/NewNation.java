@@ -3,6 +3,8 @@ package me.darthpeti.townytweaks.towny.listeners.Discord;
 import com.palmergames.bukkit.towny.event.NewNationEvent;
 import me.darthpeti.townytweaks.Main;
 import me.darthpeti.townytweaks.towny.util.DiscordWebhook;
+
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -19,15 +21,22 @@ public class NewNation implements Listener {
 
     @EventHandler
     public void onTown(NewNationEvent event) {
-        if (Main.getInstance().getCustomConfig().getString("notification-nation-create").equalsIgnoreCase("true")) {
+        // nation-create
+        String PrefixConfigName = "nation-disband";
+        FileConfiguration config = Main.getInstance().getCustomConfig();
+        if (config.getString("notification-"+PrefixConfigName).equalsIgnoreCase("true")) {
             String nationName = event.getNation().getName();
             String kingName = event.getNation().getKing().getName();
             DiscordWebhook webhook = new DiscordWebhook(Main.getInstance().getCustomConfig().getString("webhook-url"));
-
-            webhook.addEmbed(new DiscordWebhook.EmbedObject()
-                    .setColor(new Color(0, 81, 255))
-                    .setDescription(kingName + " has made a new nation called " + nationName + "!")
-            );
+            String messageConfig = config.getString("message-" + PrefixConfigName).replace("{nationName}", nationName).replace("{kingName}", kingName);
+            if (config.getString("embed-" + PrefixConfigName).equalsIgnoreCase("true")) {
+                webhook.addEmbed(new DiscordWebhook.EmbedObject()
+                        .setColor(new Color(0, 81, 255))
+                        .setDescription(messageConfig)
+                );
+            } else {
+                webhook.setContent(messageConfig);
+            }
             try {
                 webhook.execute();
             } catch (java.io.IOException e) {

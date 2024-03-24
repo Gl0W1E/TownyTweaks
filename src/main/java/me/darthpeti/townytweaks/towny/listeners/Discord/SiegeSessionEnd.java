@@ -3,6 +3,8 @@ package me.darthpeti.townytweaks.towny.listeners.Discord;
 import com.gmail.goosius.siegewar.events.BattleSessionEndedEvent;
 import me.darthpeti.townytweaks.Main;
 import me.darthpeti.townytweaks.towny.util.DiscordWebhook;
+
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -19,14 +21,20 @@ public class SiegeSessionEnd implements Listener {
 
     @EventHandler
     public void onTown(BattleSessionEndedEvent event) {
-        if (Main.getInstance().getCustomConfig().getString("notification-siegewar-session-end").equalsIgnoreCase("true")) {
-
+        // siegewar-session-end
+        String PrefixConfigName = "siegewar-session-end";
+        FileConfiguration config = Main.getInstance().getCustomConfig();
+        if (config.getString("notification-"+PrefixConfigName).equalsIgnoreCase("true")) {
             DiscordWebhook webhook = new DiscordWebhook(Main.getInstance().getCustomConfig().getString("webhook-url"));
-
-            webhook.addEmbed(new DiscordWebhook.EmbedObject()
-                    .setColor(new Color(255, 157, 0))
-                    .setDescription("The current battle session has ended!")
-            );
+            String messageConfig = config.getString("message-" + PrefixConfigName);
+            if (config.getString("embed-" + PrefixConfigName).equalsIgnoreCase("true")) {
+                webhook.addEmbed(new DiscordWebhook.EmbedObject()
+                        .setColor(new Color(214, 99, 84))
+                        .setDescription(messageConfig)
+                );
+            } else {
+                webhook.setContent(messageConfig);
+            }
             try {
                 webhook.execute();
             } catch (java.io.IOException e) {

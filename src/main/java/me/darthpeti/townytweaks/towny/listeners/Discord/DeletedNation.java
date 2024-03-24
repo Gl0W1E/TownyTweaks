@@ -3,6 +3,8 @@ package me.darthpeti.townytweaks.towny.listeners.Discord;
 import com.palmergames.bukkit.towny.event.DeleteNationEvent;
 import me.darthpeti.townytweaks.Main;
 import me.darthpeti.townytweaks.towny.util.DiscordWebhook;
+
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -19,14 +21,21 @@ public class DeletedNation implements Listener {
 
     @EventHandler
     public void onTown(DeleteNationEvent event) {
-        if (Main.getInstance().getCustomConfig().getString("notification-nation-disband").equalsIgnoreCase("true")) {
+        String PrefixConfigName = "nation-disband";
+        FileConfiguration config = Main.getInstance().getCustomConfig();
+        if (config.getString("notification-"+PrefixConfigName).equalsIgnoreCase("true")) {
             String nationName = event.getNationName();
-            DiscordWebhook webhook = new DiscordWebhook(Main.getInstance().getCustomConfig().getString("webhook-url"));
-
-            webhook.addEmbed(new DiscordWebhook.EmbedObject()
-                    .setColor(new Color(214, 99, 84))
-                    .setDescription("The nation of " + nationName + " has disbanded!")
-            );
+            DiscordWebhook webhook = new DiscordWebhook(config.getString("webhook-url"));
+            String messageConfig = config.getString("message-" + PrefixConfigName).replace("{nationName}", nationName);
+            if (config.getString("embed-" + PrefixConfigName).equalsIgnoreCase("true")) {
+                webhook.addEmbed(new DiscordWebhook.EmbedObject()
+                        .setColor(new Color(214, 99, 84))
+                        .setDescription(messageConfig)
+                );
+            } else {
+                webhook.setContent(messageConfig);
+            }
+            
             try {
                 webhook.execute();
             } catch (java.io.IOException e) {
