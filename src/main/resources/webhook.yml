@@ -54,5 +54,7 @@ notification-siegewar-siege-start: "false"
 # Set to true to notify players on discord when someone starts a Siege.
 # {attacker} - The name of the attacker
 # {defender} - The name of the defender
+# {townName} - The name of the town
+# {siegeType} - The type of the siege
 message-siegewar-siege-start: "{attacker} has started a Siege against {defender}!"
 embed-siegewar-siege-start: "false"
