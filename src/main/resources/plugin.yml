@@ -11,17 +11,14 @@ commands:
     permission-message: You do not have permission to use this command.
     usage: /townytweaks <reload|version>
     description: Main command for TownyTweaks
-    aliases: [tt]
   townytweaksreload:
     permission: townytweaks.admin
     permission-message: You do not have permission to use this command.
     usage: /townytweaks reload
     description: Reloads the plugin
-    aliases: [ttreload]
   townytweaksversion:
     permission: townytweaks.admin
     permission-message: You do not have permission to use this command.
     usage: /townytweaks version
     description: Shows the version of the plugin
-    aliases: [ttversion]
   
