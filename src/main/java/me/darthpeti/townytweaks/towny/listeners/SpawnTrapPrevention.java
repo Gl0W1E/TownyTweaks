@@ -3,7 +3,6 @@ package me.darthpeti.townytweaks.towny.listeners;
 import com.palmergames.bukkit.towny.TownyAPI;
 import com.palmergames.bukkit.towny.event.damage.TownyPlayerDamagePlayerEvent;
 import com.palmergames.bukkit.towny.object.WorldCoord;
-import me.darthpeti.townytweaks.Main;
 import me.darthpeti.townytweaks.towny.util.ConfigUtil;
 import me.darthpeti.townytweaks.towny.util.LocationUtil;
 import org.bukkit.event.EventHandler;

@@ -2,7 +2,6 @@ package me.darthpeti.townytweaks.towny.listeners;
 
 import com.gmail.goosius.siegewar.utils.SiegeWarDistanceUtil;
 import com.palmergames.bukkit.towny.event.actions.TownyItemuseEvent;
-import me.darthpeti.townytweaks.Main;
 import me.darthpeti.townytweaks.towny.util.ConfigUtil;
 import me.darthpeti.townytweaks.towny.util.LocationUtil;
 import org.bukkit.Material;

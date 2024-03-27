@@ -5,28 +5,56 @@
 webhook-url: "https://discord.com/api/webhooks/PUTSOMETHINGHERE"
 # Change this to your webhook's URL. This will be used for all notifications below.
 
-
-notification-town-creation: "false"
 # Set to true to notify players on discord whenever a new town is made.
+notification-town-creation: "false"
+# {townName} - The name of the town
+# {mayorName} - The name of the mayor
+message-town-creation: "A new town has been created! {townName} by {mayorName}"
+embed-town-creation: "false"
 
-notification-town-ruins: "false"
 # Set to true to notify players on discord whenever a town falls into ruins.
+notification-town-ruins: "false"
+# {townName} - The name of the town
+message-town-ruins: "The town {townName} has fallen into ruins!"
+embed-town-ruins: "false"
 
-notification-town-delete: "false"
 # Set to true to notify players on discord whenever a town is fully deleted.
+notification-town-delete: "false"
+# {townName} - The name of the town
+message-town-delete: "The town {townName} has been deleted!"
+embed-town-delete: "false"
 
-notification-nation-create: "false"
 # Set to true to notify players on discord whenever a new nation is made.
+notification-nation-create: "false"
+# {nationName} - The name of the nation
+# {kingName} - The name of the king
+message-nation-create: "A new nation has been created! {nationName} by {kingName}"
+embed-nation-create: "false"
 
-notification-nation-disband: "false"
 # Set to true to notify players on discord whenever a nation is deleted/disbaned.
+notification-nation-disband: "false"
+# {nationName} - The name of the nation
+message-nation-disband: "The nation {nationName} has been disbanded!"
+embed-nation-disband: "false"
 
-notification-siegewar-session-start: "false"
+
 # Set to true to notify players on discord whenever a new Siege session starts.
+notification-siegewar-session-start: "false"
+# Set to true to notify players on discord whenever a Siege session starts.
+message-siegewar-session-start: "A new Siege session has started!"
+embed-siegewar-session-start: "false"
 
+# Set to true to notify players on discord whenever a Siege session ends.
 notification-siegewar-session-end: "false"
 # Set to true to notify players on discord whenever a Siege session ends.
+message-siegewar-session-end: "The Siege session has ended!"
+embed-siegewar-session-end: "false"
 
 notification-siegewar-siege-start: "false"
 # Set to true to notify players on discord when someone starts a Siege.
-
+# {attacker} - The name of the attacker
+# {defender} - The name of the defender
+# {townName} - The name of the town
+# {siegeType} - The type of the siege
+message-siegewar-siege-start: "{attacker} has started a Siege against {defender}!"
+embed-siegewar-siege-start: "false"
