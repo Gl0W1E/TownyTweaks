@@ -11,4 +11,5 @@ commands:
     permission-message: You do not have permission to use this command.
     usage: /townytweaks <reload|version>
     description: Main command for TownyTweaks 
+    aliases: [tt]
   
