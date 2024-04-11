@@ -3,6 +3,8 @@ package me.darthpeti.townytweaks;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.palmergames.bukkit.towny.object.WorldCoord;
+
+import me.darthpeti.townytweaks.towny.commands.TabCompletion;
 import me.darthpeti.townytweaks.towny.commands.TownyTweaks;
 import me.darthpeti.townytweaks.towny.listeners.*;
 import me.darthpeti.townytweaks.towny.listeners.Discord.*;
@@ -87,6 +89,7 @@ public final class Main extends JavaPlugin {
         pM.registerEvents(new DeletedNation(getLogger()),instance);
         pM.registerEvents(new DeletedTown(getLogger()),instance);
         instance.getCommand("townytweaks").setExecutor(new TownyTweaks());
+        instance.getCommand("townytweaks").setTabCompleter(new TabCompletion());
     }
 
     @Override
